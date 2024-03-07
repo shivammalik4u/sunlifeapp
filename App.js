@@ -1,20 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Colors from './utils/Colors';
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { NavigationContainer } from '@react-navigation/native';
+import Header from './components/Header';
+import TabsNavigation from './Navigations/TabsNavigation';
+import HomeNavigation from './Navigations/HomeNavigation';
+import HomeScreen from './screens/HomeScreen';
+// import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <GestureHandlerRootView>
+      <SafeAreaView style={styles.container}>
+
+        <NavigationContainer>
+          <HomeNavigation />
+        </NavigationContainer>
+      </SafeAreaView>
+    // </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: Colors.SECONDARY,
   },
 });
